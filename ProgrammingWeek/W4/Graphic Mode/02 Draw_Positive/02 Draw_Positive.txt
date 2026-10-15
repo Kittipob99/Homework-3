@@ -1,0 +1,31 @@
+#โค้ดนี้ถูกเขียนบนเว็บไซต์ https://trinket.io/processing
+from processing import *
+
+def setup():
+  size(500,500)
+
+x = 50
+y = 50
+
+def draw_square(x,y,size):
+  rect(x,y,size,size)
+  
+def draw_positive():
+  global x, y
+  size = 25
+  draw_square(x,y,size)
+  draw_square(x+size,y,size)
+  draw_square(x-size,y,size)
+  draw_square(x,y+size,size)
+  draw_square(x,y-size,size)
+  x = x + 125
+  if x > width:
+    x = 50
+    y = y + 125
+
+def draw():
+  draw_positive()
+  
+run()
+#6901012610455
+#กิตติภพ บัวอยู่

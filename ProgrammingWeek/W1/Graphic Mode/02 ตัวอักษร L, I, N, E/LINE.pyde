@@ -1,0 +1,13 @@
+size(500,500)
+x=100
+y=200
+line(x,x,x,y)
+line(x,y,x+50,y)
+line(y,x,y,y)
+line(y+75,x,y+75,y)
+line(y+75,x,y+125,y)
+line(y+125,x,y+125,y)
+line(y+175,x,y+175,y)
+line(y+175,x,y+225,x)
+line(y+175,x+50,y+225,x+50)
+line(y+175,y,y+225,y)

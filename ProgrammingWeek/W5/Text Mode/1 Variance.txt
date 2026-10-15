@@ -1,0 +1,30 @@
+#Written in Python IDLE 3.14.6
+
+def variance(numbers):
+    total = 0
+    squared_sum = 0
+    i = 0
+    while i < len(numbers):
+        total += numbers[i]
+        i += 1
+    mean = total/len(numbers)
+    i = 0
+    while i < len(numbers):
+        squared_sum += (numbers[i] - mean) ** 2
+        i += 1
+
+    result = squared_sum/len(numbers)
+    return result
+    
+numbers = []
+n = int(input("Counts in variant : "))
+i = 0
+while i < n:
+    numbers.append(int(input(f"Number {i + 1} : ")))
+    i += 1
+    
+print("Array =",numbers)
+print("Variance =",variance(numbers))
+
+#69-010126-1045-5
+#Kittipob Buayu

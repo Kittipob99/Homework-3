@@ -1,0 +1,31 @@
+#โด้ดนี้ถูกเขียนบนเว็ปไซต์ https://trinket.io/processing
+
+from processing import *
+import random
+
+def setup():
+  size(500,500)
+  
+value = 10 #value ที่นำไปเปรียบเทียบกับ r
+  
+def draw_circle(x,y,r):
+  ellipse(x,y,r,r)
+
+def draw_rain_drops_until_r_below(value):
+  r_flag = True; #// use of flag
+  while (r_flag) == True: #ขณะ r_flag เป็นจริงให้วาดน้ำฝนเรื่อยๆ
+   x = random.randint(100,400)
+   y = random.randint(150,350)
+   r = random.randint(3,30)
+   draw_circle(x,y,r)
+   if ( r < value ): #r_flag กลายเป็นเท็จเมื่อ r ต่ำกว่า value
+     r_flag = False
+
+def draw():
+  background(125)
+  draw_rain_drops_until_r_below(value)
+
+run()
+
+#6901012610455
+#กิตติภพ บัวอยู่

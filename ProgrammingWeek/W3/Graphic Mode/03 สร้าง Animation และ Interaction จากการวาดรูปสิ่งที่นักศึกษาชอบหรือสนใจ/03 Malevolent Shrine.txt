@@ -1,0 +1,119 @@
+#โด้ดนี้ถูกเขียนบนเว็ปไซต์ https://trinket.io/processing
+
+from processing import *
+def setup():
+  size(500,500)
+
+y = 450
+x = 1
+
+def shrine(): #ศาลแบบสมบูรณ์
+  global y
+  x = 210
+  y = y - 1
+  strokeWeight(5)
+  shrine_roof(x,y)
+  shrine_body(x,y)
+  shrine_base(x,y)
+  if y <= 225: #กำหนดให้ปากศาลปรากฏหลังจากศาลปรากฏ 100%
+    shrine_mouth(x,y)
+    y = 225
+  
+def shrine_roof(x,y): #สร้างหลังคาศาลและกำหนดให้แต่ละส่วนปรากฏในเวลาที่ต่างกัน
+  line(x-25, y-40, x+40, y-75)
+  line(x+115, y-40, x + 40, y-75)
+  line(x-50, y-40, x+130, y-40)
+  if y <= 430:
+    line(x-50, y-40, x-50, y-25)
+    line(x+130, y-40, x+130, y-25)
+  if y <= 410:
+    line(x-50, y-25, x+130, y-25)
+  if y <= 390:
+    line(x-30, y-25, x-30, y-15)
+    line(x+110, y-25, x+110, y-15)
+  if y <= 370:
+    line(x-30, y-15, x+110, y-15)
+
+def shrine_body(x,y): #สร้างตัวศาลและกำหนดให้แต่ละส่วนปรากฏในเวลาที่ต่างกัน
+  if y <= 350:
+    line(x-15, y-15, x-15, y)
+    line(x+95, y-15, x+95, y)
+  if y <= 330:
+    line(x-15, y, x+95, y)
+  if y <= 310:
+    line(x ,y, x+80, y)
+  if y <= 290:
+    line(x ,y, x, y+70)
+    line(x+80, y, x+80, y+70)
+
+def shrine_mouth(x,y): #ฟันในตัวศาลที่ปรากฏตอนศาลเสร็จ 100%
+  line(x+2.5, y+20, x+77.5, y+20)
+  line(x+2.5, y+50, x+77.5, y+50)
+  line(x+2.5, y, x+2.5, y+20)
+  line(x+77.5, y, x+77.5, y+20)
+  line(x+40, y, x+40, y+20)
+  line(x+20, y, x+20, y+20)
+  line(x+60, y, x+60, y+20)
+  line(x+2.5, y+70, x+2.5, y+50)
+  line(x+77.5, y+70, x+77.5, y+50)
+  line(x+40, y+70, x+40, y+50)
+  line(x+20, y+70, x+20, y+50)
+  line(x+60, y+70, x+60, y+50)
+  
+def shrine_base(x,y): #ฐานของศาล
+  if y <= 270:
+    line(x-15, y+70, x+95, y+70)
+  if y <= 250:
+    line(x-15, y+70, x-15, y+80)
+    line(x+95, y+70, x+95, y+80)
+  if y <= 240:
+    line(x-22.5, y+80, x+102.5, y+80)
+  if y <= 230:
+    line(x-22.5, y+80, x-22.5, y+95)
+    line(x+102.5, y+80, x+102.5, y+95)
+  if y <= 225:
+    line(x-22.5, y+95, x+102.5, y+95)
+
+def cleave(): #White Slashes Effect
+  stroke(random(150,255))
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))  
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  strokeWeight(random(1,10))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+
+  
+def dismantle():  #Black and Red Slashes Effect
+  stroke(random(0,200), 0, 0)
+  strokeWeight(3)
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+  line(250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500), 250+random(-500, 500))
+
+def malevolent_shrine(): #เอาศาลกับเอฟเฟคฟันมารวมกัน
+  global x
+  background(y - 225) #ทำให้ Background เข้มขึ้นตามความสมบูรณ์ของศาล
+  shrine()
+  if y == 225:
+    background(100) 
+    shrine()
+    dismantle()
+    cleave()
+    strokeWeight(5)
+    stroke(0)
+  
+draw = malevolent_shrine
+
+run()
+#6901012610455
+#กิตติภพ บัวอยู่

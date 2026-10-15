@@ -1,0 +1,23 @@
+#โค้ดนี้ถูกเขียนบนเว็บไซต์ https://trinket.io/processing
+from processing import *
+
+def setup():
+  size(500,500)
+  
+def draw_circle(x,y,r):
+  ellipse(x,y,r,r)
+  
+def draw_rain_drops(n):
+  i = 0; #initialise
+  while (i < n): # draw n rain drops, condition
+    x = random(100,400)
+    y = random(150,350)
+    r = random(3,30)
+    draw_circle(x,y,r)
+    i = i + 1 #update
+
+def draw():
+  background(125)
+  draw_rain_drops(100)
+
+run()

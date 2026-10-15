@@ -1,0 +1,28 @@
+#โด้ดนี้ถูกเขียนบนเว็ปไซต์ https://trinket.io/processing
+
+from processing import *
+import random
+import time
+
+def setup():
+  size(500,500)
+
+def draw_vertical_lines(x1, y1, x2, y2):
+  space = abs(x1-x2)/5 #สร้างเส้นตรงแนวดิ่งที่มีระยะห่างคงที่ และมีจำนวนเส้นตามจำนวนที่เอาไปหาร
+  while (x1 < x2): #หยุดสร้างเส้นถ้าหาก x1 มากกว่าหรือเท่ากับ x2
+    line(x1,y1 - 50, x1, y1 + 50)
+    x1 = x1 + space
+  
+def draw():
+  x2 = random.randint(0,500) 
+  y1 = random.randint(0,500) 
+  x1 = random.randint(0,x2) #จำกัดไม่ให้ x1 มีโอกาสสุ่มได้ค่ามากกว่า x2 เพื่อที่เส้นจะได้ปรากฏทุกรอบ
+  y2 = random.randint(0,500)
+  print("x1=",x1),("y1=",y1),("x2=",x2),("y2=",y2)
+  background(255)
+  draw_vertical_lines(x1, y1, x2, y2)
+  time.sleep(0.25)
+
+run()
+#6901012610455
+#กิตติภพ บัวอยู่

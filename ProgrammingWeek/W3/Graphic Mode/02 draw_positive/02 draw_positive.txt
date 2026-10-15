@@ -1,0 +1,48 @@
+from processing import *
+import time
+
+z = 50 #ตัวแปรแทนขนาดภาพ
+
+def setup():
+  size(500,500)
+  
+def draw_square(x,y,z):
+  rect(x,y,z,z)
+  
+def draw_positive(): #ฟังก์ชันรูป +
+  global z
+  x = random(100,400) 
+  y = random(100,400) #สุ่มตำแหน่งปรากฏ
+  background(30) #background มาก่อนรูปในคำสั่ง Loop เพื่อกำจัดภาพซ้ำ
+  draw_square(x,y,z)
+  draw_square(x+z,y,z)
+  draw_square(x-z,y,z)
+  draw_square(x,y+z,z)
+  draw_square(x,y-z,z)
+  
+  Luck = random(0,10) #สุ่ม Luck
+  
+  if z <= 0:
+    return z
+    
+  else:
+    if Luck < 5: #หาก Luck น้อยกว่า 5 ลดขนาดภาพ 10 หน่วย
+      z = z - 10
+    
+    else:
+      if 5 <= Luck < 10: #หาก Luck เป็น 5 ถึง 9 ให้เพิ่มขนาด 10 หน่วย
+        z = z + 10
+    
+      else: #หาก Luck เป็นอย่างอื่นให้สุ่มเพิ่มหรือลดขนาดแทน
+        z = z + random(-50,50) 
+  
+  print "Current size : ", z #บอกขนาดปัจจุบันของรูปภาพ
+  time.sleep(0.5) #ใส่การหน่วงเวลา 0.5 วินาที
+
+draw = draw_positive #run draw_positive เรื่อยๆ
+
+if z <= 0: #หากขนาดเป็น 0 ให้หยุด Loop
+  noLoop()
+run()
+#6901012610455
+#กิตติภพ  บัวอยู่

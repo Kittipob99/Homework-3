@@ -1,0 +1,29 @@
+#โด้ดนี้ถูกเขียนบนเว็ปไซต์ https://trinket.io/processing
+
+from processing import *
+
+def setup():
+  size(500,500)
+
+n = int(input("Amount of rain drops")) #กำหนดจำนวนน้ำฝนต่อการ loop หนึ่งครั้ง
+
+def draw_circle(x,y,r):
+  ellipse(x,y,r,r)
+
+def draw_rain_drops(n):
+  i = 0;
+  while (i < n): # draw n rain drops
+    x = random(100,400)
+    y = random(150,350)
+    r = random(3,30)
+    draw_circle(x,y,r)
+    i = i + 1
+  
+def draw():
+  background(125)
+  draw_rain_drops(n)
+
+run()
+
+#6901012610455
+#กิตติภพ บัวอยู่

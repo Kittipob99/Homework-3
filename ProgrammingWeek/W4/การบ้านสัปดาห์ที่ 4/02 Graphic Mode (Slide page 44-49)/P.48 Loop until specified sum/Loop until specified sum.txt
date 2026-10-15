@@ -1,0 +1,29 @@
+#โด้ดนี้ถูกเขียนบนเว็ปไซต์ https://trinket.io/processing
+
+from processing import *
+
+def setup():
+  size(500,500)
+
+volume = float(input("Volume of rain drop per loop : ")) #ใช้ input กำหนด volume โดยตรง
+
+def draw_circle(x,y,r):
+  ellipse(x,y,r,r)
+
+def draw_rain_drops_until(volume):
+  sum = 0
+  while (sum < volume): #ฝนตกจนกว่า sum จะไม่น้อยกว่า volume
+    x = random(100,400) #สุ่มตำแหน่งแกน x
+    y = random(150,350) #สุ่มตำแหน่งแกน y
+    r = random(3,30) #สุ่มขนาดฝนยิ่งใหญ่ยิ่งเพิ่ม sum มาก
+    draw_circle(x,y,r)
+    sum = sum + r #คำนวณ sum อย่างง่าย
+
+def draw():
+  global volume
+  background(125)
+  draw_rain_drops_until(volume)
+
+run()
+#6901012610455
+#กิตติภพ บัวอยู่
