@@ -1,0 +1,4 @@
+65001,สมชาย ใจดี,Computer Science,20
+65002,สมหญิง รักเรียน,Information Technology,21
+65003,วิชัย เก่งมาก,Computer Science,19
+65004,มานี มีสุข,Information Technology,22

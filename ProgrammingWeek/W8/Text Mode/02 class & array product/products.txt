@@ -1,0 +1,4 @@
+Beef jerky, 19.99, 27
+Layz potato chips, 4.99, 163
+Ribeye beef (Wagyu A5), 49.99, 20
+Pack of nails, 5.99, 100

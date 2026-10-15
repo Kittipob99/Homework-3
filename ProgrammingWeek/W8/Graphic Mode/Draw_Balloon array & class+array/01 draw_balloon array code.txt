@@ -1,0 +1,53 @@
+#Written in Processing 4.4.10 Python mode
+balloons = [
+    [100, 600, 60, 1.0, color(255, 0, 0)],
+    [250, 500, 80, 1.5, color(0, 150, 255)],
+    [400, 650, 50, 2.0, color(255, 200, 0)],
+    [600, 550, 70, 1.2, color(0, 200, 100)],
+    [800, 620, 90, 1.8, color(200, 0, 255)]
+]
+
+
+def setup():
+    size(900, 700)
+    smooth()
+
+
+def draw():
+    background(220, 240, 255)
+
+    for balloon in balloons:
+
+        x = balloon[0]
+        y = balloon[1]
+        size_balloon = balloon[2]
+        speed = balloon[3]
+        balloon_color = balloon[4]
+
+        draw_balloon(x, y, size_balloon, balloon_color)
+
+        balloon[1] = balloon[1] - speed
+
+        if balloon[1] < -size_balloon:
+            balloon[1] = height + size_balloon
+
+
+def draw_balloon(x, y, size_balloon, balloon_color):
+    fill(balloon_color)
+    stroke(0)
+    ellipse(x, y, size_balloon, size_balloon * 1.2)
+
+    fill(balloon_color)
+    triangle(
+        x - 7, y + size_balloon * 0.55,
+        x + 7, y + size_balloon * 0.55,
+        x, y + size_balloon * 0.75
+    )
+
+    stroke(0)
+    line(
+        x,
+        y + size_balloon * 0.75,
+        x,
+        y + size_balloon * 1.8
+    )

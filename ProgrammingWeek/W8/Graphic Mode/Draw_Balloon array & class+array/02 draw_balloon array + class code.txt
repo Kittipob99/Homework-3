@@ -1,0 +1,41 @@
+#Written in Processing 4.4.10 Python mode
+
+class Balloons():
+    def __init__(self, x, y, sz, speed, tone):
+        self.x = x
+        self.y = y
+        self.sz = sz
+        self.speed = speed
+        self.tone = tone
+    def show(self):
+        fill(self.tone)
+        ellipse(self.x, self.y, self.sz, self.sz * 1.2)
+        line(self.x, self.y + self.sz*0.6, self.x, self.y + self.sz*1.5)
+    def move(self):
+        self.y -= self.speed
+        
+balloons = [
+    [100, 600, 60, 1.0, color(255, 0, 0)],
+    [250, 500, 80, 1.5, color(0, 150, 255)],
+    [400, 650, 50, 2.0, color(255, 200, 0)],
+    [600, 550, 70, 1.2, color(0, 200, 100)],
+    [800, 620, 90, 1.8, color(200, 0, 255)]
+]
+
+balloon_objects = []
+
+
+def setup():
+    size(900, 700)
+    smooth()
+
+    for data in balloons:
+        balloon_objects.append(Balloons(*data))
+
+
+def draw():
+    background(220, 240, 255)
+
+    for balloon in balloon_objects:
+        balloon.move()
+        balloon.show()

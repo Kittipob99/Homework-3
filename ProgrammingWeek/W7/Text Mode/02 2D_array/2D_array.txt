@@ -1,0 +1,88 @@
+#Written in Python IDLE 3.14.6
+
+my_2D_array = [[1,2,3], [4,5,6], [7,8,9]]
+my_2D_array2 = [[7,8,1], [4,5,8], [5,1,2]] 
+
+print("1st Array : ", my_2D_array)
+print("2nd Array : ", my_2D_array2)
+print()
+
+#a. Find max/min/average value of a 2D array
+def max_2D_array(arr):
+    max = arr[0][0]
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            if max < arr[i][j]:
+                max = arr[i][j]
+    return max
+
+def min_2D_array(arr):
+    min = arr[0][0]
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            if min > arr[i][j]:
+                min = arr[i][j]
+    return min
+
+def average_2D_array(arr):
+    avg = 0
+    n = 0
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            avg += arr[i][j]
+            n += 1
+    result = avg/n
+    return result
+        
+print("1st array maximum number is ", max_2D_array(my_2D_array))
+print("1st array minimum number is ", min_2D_array(my_2D_array))
+print("1st array average value is ", average_2D_array(my_2D_array))
+print()
+
+#b. Check whether a value is in a 2D array (return boolean)
+def is_found(arr, n):
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            if n == arr[i][j]:
+                return True
+                break
+    return False
+            
+print(is_found(my_2D_array, int(input("What number do you want to find in the 1st array? : "))))
+print()
+
+#c. matrix add, subtract, multiplication
+
+def matrix_add(A, B):
+    rows = len(A)
+    cols = len(A[0])
+    result = [[A[i][j] + B[i][j] for j in range(cols)] for i in range(rows)]
+    return result
+
+def matrix_subtract(A, B):
+    rows = len(A)
+    cols = len(A[0])
+    result = [[A[i][j] - B[i][j] for j in range(cols)] for i in range(rows)]
+    return result
+
+def matrix_multiplication(A, B):
+    rows_A, cols_A = len(A), len(A[0])
+    rows_B, cols_B = len(B), len(B[0])
+    if cols_A != rows_B:
+        return "Error: Incompatible dimensions for multiplication"
+    
+    # Initialize a result matrix filled with zeros
+    result = [[0 for _ in range(cols_B)] for _ in range(rows_A)]
+    
+    # Perform matrix multiplication
+    for i in range(rows_A):
+        for j in range(cols_B):
+            for k in range(cols_A):
+                result[i][j] += A[i][k] * B[k][j]
+    return result
+
+print("1st and 2nd Matrix addition is ", matrix_add(my_2D_array, my_2D_array2))
+print("1st and 2nd Matrix subtraction is ", matrix_subtract(my_2D_array, my_2D_array2))
+print("1st and 2nd Matrix multiplication is ", matrix_multiplication(my_2D_array, my_2D_array2))
+#69-010126-1045-5
+#Kittipob Buayu

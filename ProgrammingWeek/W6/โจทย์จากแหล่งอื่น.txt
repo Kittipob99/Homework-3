@@ -1,0 +1,23 @@
+#Written in Python IDLE 3.14.6
+
+#เรียงค่าใน Array จากน้อยไปมาก
+a = [3, 1, 4, 2, 3, 1]
+
+def max_to_min(array):
+    i = 0
+    n = i + 1
+    while i < len(array):
+        while n < len(array):
+            if array[i] < array[n]:
+                store = array[i]
+                array[i] = array[n]
+                array[n] = store
+            n += 1
+        i += 1
+        n = i + 1
+    return array
+    
+print(max_to_min(a))
+            
+#69-010126-1045-5
+#Kittipob Buayu

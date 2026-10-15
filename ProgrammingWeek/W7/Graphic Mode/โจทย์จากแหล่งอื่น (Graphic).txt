@@ -1,0 +1,41 @@
+#Written in Processing 4.4.10 (Python mode)
+# Define button dimensions and position
+btn_x = 150
+btn_y = 170
+btn_w = 200
+btn_h = 60
+
+# Global variable for canvas background color
+bg_color = 220
+
+def setup():
+    size(500, 400)
+    strokeWeight(2)
+
+def draw():
+    global bg_color
+    background(bg_color)
+    
+    # Check if the mouse is inside the button boundaries
+    if (btn_x < mouseX < btn_x + btn_w) and (btn_y < mouseY < btn_y + btn_h):
+        fill(200, 50, 50) # Darker red on hover
+    else:
+        fill(255, 100, 100) # Normal light red
+        
+    # Draw the button rectangle
+    rect(btn_x, btn_y, btn_w, btn_h, 10) # 10 is the corner radius
+    
+    # Draw the button text
+    fill(255)
+    textSize(20)
+    textAlign(CENTER, CENTER)
+    text("Click Me!", btn_x + btn_w/2, btn_y + btn_h/2)
+
+def mousePressed():
+    global bg_color
+    # Trigger the background change only if clicked inside the button
+    if (btn_x < mouseX < btn_x + btn_w) and (btn_y < mouseY < btn_y + btn_h):
+        bg_color = color(random(255), random(255), random(255))
+        
+#69-010126-1045-5
+#Kittipob Buayu
